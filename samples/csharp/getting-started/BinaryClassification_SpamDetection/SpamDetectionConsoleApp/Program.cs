@@ -45,7 +45,6 @@ namespace SpamDetectionConsoleApp
                                           CharFeatureExtractor = new Microsoft.ML.Transforms.Text.WordBagEstimator.Options { NgramLength = 3, UseAllLengths = false },
                                       }, "Message"))
                                       .Append(mlContext.Transforms.CopyColumns("Features", "FeaturesText"))
-                                      .Append(mlContext.Transforms.NormalizeLpNorm("Features", "Features"))
                                       .AppendCacheCheckpoint(mlContext);
 
             // Set the training algorithm 
